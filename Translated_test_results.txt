@@ -1,0 +1,65 @@
+// produce truth tables for the following sentences
+1. not not ( E and not E )
+2. A and B equals not B
+3. ( A and B ) equals not B
+4. A implies B or B implies C
+5. not A implies ( B equals C )
+6. not ( E and ( H implies ( B and E ) ) )      
+7. A equals ( not A equals A )
+8. ( V equals W ) or ( W equals U )
+9. ( F equals G ) implies ( G equals H )        
+10. ( J and ( ( E or F ) and ( not E and not F ) ) implies not J)        //editted closing bracket at the end // Passed
+11. ( A or not B ) and ( C implies D ) equals E
+12. ( A implies B ) and ( not A implies C )
+13. ( A implies ( C implies not D ) ) and B implies ( not ( C implies A ) or E )    // editted removed 'or" duplicate before last atom
+14. not ( A or B ) and C or D implies ( C and D )       // editted removed 'and' duplicate
+15. R implies ( ( not F and not G ) and not D )
+16. ( F or ( G or D ) ) or ( P or ( S or R ) ) 
+17. D or ( ( F and not P ) or ( G and not S ) )
+18. D implies ( not N implies ( ( B and C ) equals not ( ( L implies J ) or X ) ) )     
+19. ( B implies ( M implies H ) ) equals ( ( B implies M ) implies ( B implies H ) )
+20. not ( ( ( A or B ) and ( B or C ) ) and ( not A and not B ) )       
+
+Truth functional truth/falsity/Indeterminacy
+1. not A implies A : I      //Passed
+2. J implies ( K implies J ) : T        //Passed
+3. not ( not ( K implies H ) and not ( not K implies ( not ( J and not H ) implies J ) ) ) : T      // Passed
+4. ( not Y and ( X implies ( not Z implies Y ) ) ) and ( not Z and X ) : F      //Passed
+5. ( ( not Z or Y ) or ( ( not W or Z ) or ( not Y and ( not W implies not X ) ) ) ) or ( Y and not X ) : T     //Passed
+
+
+Truth functional consistency Tests
+1. A, B, C : T       // Passed
+2. G or H, not G implies H : T      //Passed
+3. F and ( J or H ), ( F and J ) or H : T       //Passed
+4. not ( B and not A ), not ( B and not ( not C equals A ) ), not ( A or not B ) : F        //Passed
+5. A, ( D and C ), ( B and not D ) implies not ( not A or C ), not ( not ( A or B ) and D ) : T     //Passed
+
+
+Truth functional equivalence Tests
+1. G or H, not G implies H : T      //Passed
+2. not ( not A implies B ), ( B equals A ), not ( not B and not A ) : F     //Passed
+3. not ( not C and A ) or not B, not ( not ( A implies not B ) or C ), not B and not ( not A or C ) : F     //Passed
+4. not ( not C implies B ) implies A, not A implies ( not B implies C ), not ( ( not C and not B ) and not A ) : T      //Passed
+5. not ( not H or ( not K or ( L implies J ) ) ), not ( not L or not K ) and ( H and not J ), not ( not ( J or not L ) implies not H ) and K : T        //Passed
+
+// truth-functional validity Tests
+
+1. premise {A implies ( H and J ), J equals H, not J}, conclusion {not A} : T        //Passed
+2. premise {not ( Y equals A ), not Y, not A}, conclusion {W and not W} : T         //Passed
+3. premise {( C implies D ) implies ( D implies E ), D}, conclusion {C implies E} : T       //Passed
+4. premise {K equals L, L implies J, not J}, conclusion {not K or L} : T        //Passed
+5. premise {not ( A or not ( B or not C ) )}, conclusion {not A equals not B} : F  //Passed
+
+// truth-functional entailment
+1. premise {p, q, not p or q}, entailment {p implies q} : T     //Passed
+2. premise {}, entailment{not not p and p} : F     //Passed
+3. premise {not z, x, not z}, entailment {( not z equals not y ) implies x} : T     //Passed
+4. premise {not b or not a, not a and b, not b or not a, not a}, entailment {a implies b} : T       //Failed
+5. premise {z and x, not ( y or ( not z and x ) ), ( y or z ) implies x}, entailment {not ( y and x )} : T      //Passed
+6. premise {( not c implies d ) and ( a and not b ), ( a implies not d ) or b, ( ( b or d ) and not c ) or a, ( not c and not a ) implies ( not b or d )}, entailment {( d implies b ) implies ( not a implies c )} : T     //Passed
+7. premise {( ( d implies not a ) implies ( not c and b ) ), ( b implies ( not a or c ) ), ( b or c ), ( b or not c )}, entailment {( not a and not d ) and ( not b or c )} : F         //Passed
+8. premise {k implies l, not j and ( not k or not l ), ( k implies l ) implies l, ( l or not l ) implies ( k implies not j )}, entailment {( ( l and k ) or k ) and ( l implies j )} : F        //Passed
+9. premise {not a, not a implies not b, not b and ( not a implies not b )}, entailment {( a and b ) or b} : F       //Passed
+10. premise {not ( ( A equals C ) and not D ), not ( not B and not ( not C and not D ) ), not ( not ( C equals D ) and ( A equals B ) ), D implies ( ( not A implies not B ) implies C ), not ( A or ( D implies C ) )}, entailment {not ( not ( not C or A ) equals not D ) and B} : F     //Passed
+
